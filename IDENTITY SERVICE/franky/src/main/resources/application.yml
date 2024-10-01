@@ -1,0 +1,5 @@
+spring:
+  application:
+    name:franky
+server:
+  port: 8080

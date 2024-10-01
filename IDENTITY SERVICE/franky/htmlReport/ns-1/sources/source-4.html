@@ -1,0 +1,164 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UserRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.ucb.franky</a>
+</div>
+
+<h1>Coverage Summary for Class: UserRepository (com.ucb.franky)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserRepository</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.ucb.franky;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+<b class="fc">&nbsp;public class UserRepository {</b>
+<b class="fc">&nbsp;    static ArrayList&lt;User&gt; list = new ArrayList&lt;User&gt;();</b>
+&nbsp;    //static: La lista es compartida entre todas las
+&nbsp;    // instancias de la clase UserRepository. Es decir, pertenece a
+&nbsp;    // la clase y no a objetos individuales.
+&nbsp;    static {
+<b class="fc">&nbsp;        list.add(new User(</b>
+&nbsp;                &quot;Roberto Carlos&quot;,
+&nbsp;                &quot;Callisaya Mamani&quot;,
+&nbsp;                &quot;0&quot;,
+&nbsp;                &quot;07/07/1986&quot;,
+&nbsp;                &quot;11/03/2024&quot;,
+&nbsp;                &quot;11/03/2029&quot;
+&nbsp;        ));
+<b class="fc">&nbsp;        list.add(new User(</b>
+&nbsp;                &quot;Roberto Carlos&quot;,
+&nbsp;                &quot;Callisaya Mamani&quot;,
+&nbsp;                &quot;1&quot;,
+&nbsp;                &quot;07/07/1986&quot;,
+&nbsp;                &quot;11/03/2024&quot;,
+&nbsp;                &quot;11/03/2029&quot;
+&nbsp;        ));
+<b class="fc">&nbsp;        list.add(new User(</b>
+&nbsp;                &quot;Roberto Carlos&quot;,
+&nbsp;                &quot;Callisaya Mamani&quot;,
+&nbsp;                &quot;2&quot;,
+&nbsp;                &quot;07/07/1986&quot;,
+&nbsp;                &quot;11/03/2024&quot;,
+&nbsp;                &quot;11/03/2029&quot;
+&nbsp;        ));
+<b class="fc">&nbsp;        list.add(new User(</b>
+&nbsp;                &quot;Roberto Carlos&quot;,
+&nbsp;                &quot;Callisaya Mamani&quot;,
+&nbsp;                &quot;3&quot;,
+&nbsp;                &quot;07/07/1986&quot;,
+&nbsp;                &quot;11/03/2024&quot;,
+&nbsp;                &quot;11/03/2029&quot;
+&nbsp;        ));
+&nbsp;    }
+&nbsp;    public ArrayList&lt;User&gt; findByCi(String ci){
+&nbsp;        // Cambia a la creación de un ArrayList explícitamente
+<b class="fc">&nbsp;        return list.stream()</b>
+<b class="fc">&nbsp;                .filter(user -&gt; Objects.equals(user.getCi(), ci))</b>
+<b class="fc">&nbsp;                .collect(Collectors.toCollection(ArrayList::new));  // Convirtiendo a ArrayList de manera segura</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //el stream permite hacer operaciones sobre el ArrayList como filter
+&nbsp;    //.collect(Collectors.toCollection(ArrayList::new));
+&nbsp;    // eso de ahi es para que el stream que se volvio una lista inmutable se
+&nbsp;    // pueda volver una lista mutable y asi poder castearla o retornara como ArrayList&lt;User&gt;
+&nbsp;    //Usar Object equals es mejor que usar user.getCi().equals(ci) ya que esta ultima expresion no puede comparar igualdad entre nulls
+&nbsp;    //pero el Objects.equals si puedes
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-09-24 18:54</div>
+</div>
+</body>
+</html>
